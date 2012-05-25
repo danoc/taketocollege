@@ -94,7 +94,7 @@
 									if(eval(user_id)) {
 										// account created successfully
 										console.log('Account created successfully');
-										
+			
 										// prepare items and create list
 										var items = createItemArray();
 
