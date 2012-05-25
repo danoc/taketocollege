@@ -10,7 +10,7 @@ $(document).ready(function() {
 	if(base_url.toString().indexOf("localhost") != -1) {
 		base_url = 'http://localhost:8888/taketocollege/';
 	} else {
-		base_url = 'http://taketocollege.com/';
+		base_url = 'http://beta.taketocollege.com/';
 	}
 	
 	// Check the checkbox when an item is clicked.
