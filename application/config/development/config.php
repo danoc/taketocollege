@@ -57,7 +57,7 @@ $config['uri_protocol']	= 'AUTO';
 | http://codeigniter.com/user_guide/general/urls.html
 */
 
-$config['url_suffix'] = '/ke';
+$config['url_suffix'] = '/';
 
 /*
 |--------------------------------------------------------------------------
@@ -356,6 +356,16 @@ $config['rewrite_short_tags'] = FALSE;
 |
 */
 $config['proxy_ips'] = '';
+
+
+/*
+|--------------------------------------------------------------------------
+| Facebook Configuration
+|--------------------------------------------------------------------------|
+*/
+
+define('FACEBOOK_APP_ID', '232492456762193');
+define('FACEBOOK_APP_SECRET', '9eb0f7a56e3138b49689dd1d1ee288cc');
 
 
 /* End of file config.php */

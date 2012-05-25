@@ -18,7 +18,16 @@
  * NOTE: If you change these, also change the error_reporting() code below
  *
  */
-	define('ENVIRONMENT', 'development');
+
+$env = 'development';
+
+if($_SERVER['HTTP_HOST'] !== 'localhost:8888') {
+	$env = 'production';
+}
+
+define('ENVIRONMENT', $env);
+
+
 /*
  *---------------------------------------------------------------
  * ERROR REPORTING
