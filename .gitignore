@@ -1,0 +1,15 @@
+*/config/development
+*/logs/log-*.php
+*/logs/!index.html
+*/cache/*
+*/cache/!index.html
+
+._*
+.DS_Store
+.Spotlight-V100
+.Trashes
+Thumbs.db 
+Desktop.ini
+
+Capfile
+/config
