@@ -31,6 +31,7 @@ class User extends CI_Controller {
 		$user_id = $this->Users->authenticate_user('oauth_uid', $this->input->post('oauth_uid'));
 		if($user_id) {
 			$this->session->set_userdata('user_id', $user_id);	
+			$this->session->set_userdata('fb_id', $this->input->post('oauth_uid'));	
 			$this->session->set_userdata('name', $this->input->post('name'));
 			$this->session->set_userdata('first_name', $this->input->post('first_name'));
 			$this->session->set_userdata('email', $this->input->post('email'));
