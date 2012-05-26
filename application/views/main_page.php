@@ -232,10 +232,10 @@
 				<div id="new-user-notice-container"></div>
 			<?php endif; ?>
 			<div id="notice-container"></div>
-			
-			
+
 			<div id="list-<?=$list_id;?>">
-			<h1>College Packing List</h1>				
+			<div class="fb-like" id="like-button" data-href="http://facebook.com/ttcollege" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>
+			<h1>College Packing List</h1>
 			<?php
 				foreach($items as $column) 
 				{
