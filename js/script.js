@@ -318,44 +318,44 @@ $(document).ready(function() {
 		}
 	}
 
-
 	// Take an item from the "Explore Items" list and
 	// add it to the user's list.
-	// $('.add').live('click', function(e) {
-	// 	e.preventDefault();
-	// 	
-	// 	var listItem = $(this).parentsUntil('li').parent();
-	// 	var itemCategory = listItem.attr('name');
-	// 	var itemTitle = $(this).parent().prev('.item_title').text();
-	// 	var list = $('ul[name="'+itemCategory+'"]');
-	// 			
-	// 	// Add the item to the college packing list.
-	// 	list.append('<li class="item clearfix" name="'+ itemTitle +'"><img src="img/checkbox-unchecked.png" width="16" height="16" class="checkbox" alt=""><span class="item_title">'+ itemTitle +'</span><div class="item_actions"><!--<a href="" title="Remame item"><img src="img/icons/rename.png" width="12" height="12" class="rename" alt="Rename"></a>--><a href="" title="Remove from list"><img src="img/icons/remove.png" width="10" height="10" class="remove" alt="Remove"></a></div></li>');
-	// 	
-	// 	// Sort the user's list.
-	// 	var listitems = list.children('li').get();
-	// 	listitems.sort(function(a, b) {
-	// 	   var compA = jQuery.trim($(a).text().toUpperCase());
-	// 	   var compB = jQuery.trim($(b).text().toUpperCase());
-	// 	   return (compA < compB) ? -1 : (compA > compB) ? 1 : 0;
-	// 	})
-	// 	$.each(listitems, function(idx, itm) { list.append(itm); });
-	// 	
-	// 	// Highlight the new item when it is added.
-	// 	$(list).children('li[name="'+itemTitle+'"]').effect("highlight", {}, 2000);				
-	// 	
-	// 	// Show a success message.
-	// 	$('#ideas ul').before('<p class="notice alert">Item added successfully</p>');
-	// 	$('#ideas .notice').delay(2000).fadeOut();
-	// 
-	// 	// Remove the item from the "Explore Items" page.
-	// 	listItem.fadeOut();
-	// 
-	// 	// Show notices and messages
-	// 	processActions();
-	// 
-	// 	e.stopPropagation();
-	// });
-
-
+	$('.add').live('click', function(e) {
+		e.preventDefault();
+		
+		var listItem = $(this).parentsUntil('li').parent();
+		var itemCategory = listItem.attr('name');
+		var itemTitle = $(this).parent().prev('.item_title').text();
+		var list = $('ul[name="'+itemCategory+'"]');
+				
+		// Add the item to the college packing list.
+		list.append('<li class="item clearfix" name="'+ itemTitle +'"><img src="img/checkbox-unchecked.png" width="16" height="16" class="checkbox" alt=""><span class="item_title">'+ itemTitle +'</span><div class="item_actions"><!--<a href="" title="Remame item"><img src="img/icons/rename.png" width="12" height="12" class="rename" alt="Rename"></a>--><a href="" title="Remove from list"><img src="img/icons/remove.png" width="10" height="10" class="remove" alt="Remove"></a></div></li>');
+		
+		// Sort the user's list.
+		var listitems = list.children('li').get();
+		listitems.sort(function(a, b) {
+		   var compA = jQuery.trim($(a).text().toUpperCase());
+		   var compB = jQuery.trim($(b).text().toUpperCase());
+		   return (compA < compB) ? -1 : (compA > compB) ? 1 : 0;
+		})
+		$.each(listitems, function(idx, itm) { list.append(itm); });
+		
+		// Highlight the new item when it is added.
+		$(list).children('li[name="'+itemTitle+'"]').effect("highlight", {}, 2000);				
+		
+		// Show a success message.
+		$('#ideas ul').before('<p class="notice alert">Item added successfully</p>');
+		$('#ideas .notice').delay(2000).fadeOut();
+	
+		// Remove the item from the "Explore Items" page.
+		listItem.fadeOut();
+	
+		// Show notices and messages
+		processActions();
+	
+		e.stopPropagation();
+	});
+	
+	$('a[rel*=facebox]').facebox();
+  
 });

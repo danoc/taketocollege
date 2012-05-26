@@ -214,7 +214,7 @@
 			<nav>
 				<ul class="navigation">
 					<?php if(ENVIRONMENT == 'development'): ?>	
-						<li><a href="#about" rel="facebox">About</a></li>
+						<li><a class="group" href="#about" rel="facebox">About</a></li>
 						<li><a href="#fb_ideas" rel="facebox" class="soft-button success">Explore Items</a></li>
 					<?php endif; ?>
 
@@ -293,6 +293,37 @@
 				<li>&copy; Take to College</li>
 			</ul>
 	    </footer>
+	</div>
+	
+	<div id="fb_ideas">
+		<div id="ideas">
+			<h1>Explore Ideas</h1>
+			<p>Here are some things you may be forgetting...</p>
+			<ul>
+				<li name="School Supplies">
+					<span class="item_title">Blender</span>
+					<div class="item_actions">
+						<a href="" class="add"><img src="img/icons/add.png" width="16" height="16" alt="Add">Add to List</a>
+					</div>
+				</li>
+				<li>Coffee Mug</li>
+				<li>Disposable Camera</li>
+				<li>Paper Plates</li>
+				<li>Magazine Collection</li>
+				<li>Coffee Mug</li>
+				<li>Disposable Camera</li>
+				<li>Paper Plates</li>
+				<li>Magazine Collection</li>
+				<li>Coffee Mug</li>
+				<li>Disposable Camera</li>
+				<li>Paper Plates</li>
+				<li>Magazine Collection</li>
+				<li>Coffee Mug</li>
+				<li>Disposable Camera</li>
+				<li>Paper Plates</li>
+				<li>Magazine Collection</li>
+			</ul>
+		</div>
 	</div>
 
 	<!-- JavaScript at the bottom for fast page loading -->
