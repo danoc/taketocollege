@@ -49,9 +49,11 @@ $(document).ready(function() {
 			});
 		}
 
+		if(connected) setSaved(true);
+
 		// Show notices and messages
 		processActions();
-	});		
+	});	
 
 	// Show the add_item_form when the "Add Item"
 	// link is clicked and hide the "Add Item" button.
@@ -179,6 +181,7 @@ $(document).ready(function() {
 				$(this).remove();
 			});
 		}
+		if(connected) setSaved(true);
 	    e.stopPropagation();
 	});
 
@@ -224,6 +227,7 @@ $(document).ready(function() {
 			$(form).children('input[name="title"]').val('');
 		}
 
+		if(connected) setSaved(true);
 		processActions();
 	
 		$(this).children('input').blur().focus();
@@ -259,9 +263,33 @@ $(document).ready(function() {
 
 		$.each(items, function(idx, itm) { container.append(itm); });
 	
-		container.children('li[name="'+title+'"]').effect("highlight", {}, 2000);		
+		container.children('li[name="'+title+'"]').effect("highlight", {}, 2000);
+		if(connected) setSaved(true);
 	}
+	
+	// Make the list_actions scroll with the 
+	// visitor's browser
+	$(window).bind('scroll', function(){
+		var scrollBottom = $(document).height() - ($(document).scrollTop() + $(window).height());
+			
+		$("#list_actions").fadeIn();
+						
+		if(scrollBottom < 55) {
+			$('#list_actions').css("margin-bottom", 55-scrollBottom);
+		} else {
+			$('#list_actions').css("margin-bottom", 0);
+		}
+	});
+		
+	$('#save').click(function(e) {
+		e.preventDefault();
+		setSaved(true);
+	});
 
+	$('#print').click(function(e) {
+		e.preventDefault();
+		window.print();
+	});
 
 	function clearNotices() {
 		$('.notice').remove();
@@ -285,6 +313,7 @@ $(document).ready(function() {
 		} else if(actions > 7 && !connected && !loginAlert) {
 			// ask users to create an account
 			showNotice('notice-login', 'error login-link', 'Warning!', 'You should <a href="#" class="login-link">register or login</a> to save your college shopping list.', true, 'false', true, false);
+			$('#save').css('border', '1px solid #e95050').effect("highlight", {color: '#ffbebe'}, 3000);
 			loginAlert = true;
 		}
 	}

@@ -51,6 +51,9 @@
 			FB.Event.subscribe('auth.statusChange', function(response) {
 				if (response.authResponse && eval(<?=$this->session->userdata('user_id');?>)) {
 					connected = true;
+					setSaved(true);
+				} else {
+					$('#save').addClass('login-link');
 				}
 			});
 			
@@ -176,6 +179,18 @@
 			console.log(items);
 			return items;
 		}
+		
+		// change the state of the save list button
+		function setSaved(state) {
+			if(state) {
+				var delayLen = Math.floor((1700-999)*Math.random()) + 1000;
+				$('#save').removeClass('saved').text('Saving...').delay(delayLen).queue(function(n) {
+					$('#save').text('Saved').addClass('saved');
+					n();
+				});
+			} else
+				$('#save').text('Save List');
+		}
 
 		// Load the SDK Asynchronously
 		(function(d){
@@ -186,6 +201,10 @@
 			ref.parentNode.insertBefore(js, ref);
 		}(document));
 	</script>
+	<div id="list_actions" class="list_actions_fixed contents">
+			<a href="#" id="save" class="save">Save List</a>
+			<a href="#" id="print">Print</a>
+	</div>
 	
 	<div id="container">
 		<header class="clearfix">
