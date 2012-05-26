@@ -122,7 +122,7 @@
 									} else {
 										// account already exists
 										console.log('User already exists');
-										loginUser(me.id);
+										loginUser(me.id, me.name, me.first_name, me.email);
 									}
 
 								}
@@ -135,11 +135,14 @@
 			
 		 };
 		
-		function loginUser(uid) {
+		function loginUser(uid, name, firstName, email) {
 			var cct = $.cookie('ttc_csrf_cookie'); // csrf protection
 			var sUrl = "<?= base_url(); ?>user/login/";
 			var serialized = {
 				oauth_uid: uid,
+				name: name,
+				first_name: firstName,
+				email: email,
 				ttc_csrf_token: cct
 			};
 			$.ajax({

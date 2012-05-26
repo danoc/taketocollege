@@ -29,7 +29,12 @@ class User extends CI_Controller {
 	
 	public function login() {
 		$user_id = $this->Users->authenticate_user('oauth_uid', $this->input->post('oauth_uid'));
-		if($user_id) $this->session->set_userdata('user_id', $user_id);
+		if($user_id) {
+			$this->session->set_userdata('user_id', $user_id);	
+			$this->session->set_userdata('name', $this->input->post('name'));
+			$this->session->set_userdata('first_name', $this->input->post('first_name'));
+			$this->session->set_userdata('email', $this->input->post('email'));
+		}
 		$this->chromephp->log("user_id is: ".$user_id);
 		echo $user_id;
 	}
