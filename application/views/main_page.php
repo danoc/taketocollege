@@ -194,9 +194,12 @@
 			</a>
 			<nav>
 				<ul class="navigation">
-					<li><a href="#about" rel="facebox">About</a></li>
-					<li><a href="#fb_ideas" rel="facebox" class="soft-button success">Explore Items</a></li>
-					<?php if($this->session->userdata('user_id')): ?>
+					<?php if(ENVIRONMENT == 'development'): ?>	
+						<li><a href="#about" rel="facebox">About</a></li>
+						<li><a href="#fb_ideas" rel="facebox" class="soft-button success">Explore Items</a></li>
+					<?php endif; ?>
+
+					<?php if($this->session->userdata('user_id') && ENVIRONMENT == 'development'): ?>
 						<li><a href="#" class="nav-profile-link">My Profile</a></li>
 					<?php else: ?>
 						<li><a href="#" class="login-link"><strong>Login</strong></a></li>
@@ -250,16 +253,20 @@
 			?>
 			</div>
 	    </div>
-	
-		<a href="<?= site_url(); ?>user/logout">Logout</a>
-	
-<pre>
+
+		<?php if(ENVIRONMENT == 'development'): ?>	
+			<a href="<?= site_url(); ?>user/logout">Logout</a>
+			<pre>
 <?php print_r($this->session->userdata); ?>
-</pre>
+			</pre>
+		<?php endif; ?>
 
 	    <footer>
 			<ul>
-				<li><a href="<?= site_url().'about/'; ?>">About</a></li>
+				<?php if(ENVIRONMENT == 'development'): ?>	
+					<li><a href="<?= site_url().'about/'; ?>">About</a></li>
+				<?php endif; ?>
+				
 				<li><a href="http://blog.taketocollege.com/">Blog</a></li>
 				<li><a href="mailto:daniel@danoc.me">Contact</a></li>
 				<li><a href="http://twitter.com/ttcollege">Twitter</a></li>
