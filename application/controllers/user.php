@@ -15,7 +15,8 @@ class User extends CI_Controller {
 	
 	public function create() {
 		if($this->input->post()) {
-			$user['name'] = $this->input->post('name');
+			$user['first_name'] = $this->input->post('first_name');
+			$user['last_name'] = $this->input->post('last_name');
 			$user['email'] = $this->input->post('email');
 			$user['oauth_provider'] = $this->input->post('oauth_provider');
 			$user['oauth_uid'] = $this->input->post('oauth_uid');
@@ -34,7 +35,9 @@ class User extends CI_Controller {
 			$this->session->set_userdata('fb_id', $this->input->post('oauth_uid'));	
 			$this->session->set_userdata('name', $this->input->post('name'));
 			$this->session->set_userdata('first_name', $this->input->post('first_name'));
+			$this->session->set_userdata('last_name', $this->input->post('last_name'));
 			$this->session->set_userdata('email', $this->input->post('email'));
+			$this->session->set_userdata('social_sharing', $this->Users->get_user_information('social_sharing', 1));
 		}
 		$this->chromephp->log("user_id is: ".$user_id);
 		echo $user_id;

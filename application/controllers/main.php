@@ -17,6 +17,6 @@ class Main extends CI_Controller {
 			$data['list_id'] = $this->Users->get_user_list($this->session->userdata('user_id'));
 		}
 		$data['items'] = $this->Lists->get_list($data['list_id']);
-		$this->load->view('main_page', $data);		
+		$this->load->view('main_view', $data);		
 	}	
 }

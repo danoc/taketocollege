@@ -218,21 +218,25 @@ td { vertical-align: top; }
 		max-width: 1200px;
 		width: 90%;
 	}
-	
+
 	h1 {
 		color: #404040;
 		font-size: 131%;
 	}
 	
 	h2 {
-		color: #0B853F;
 		font-size: 108%;
 	}
-		
+
+	#main {
+		h2 {
+			color: #0B853F;
+		}
+	}
 	
 	/*--- Alerts ---*/
 	
-	#notice-container { display: none; }
+	#main #notice-container { display: none; }
 	.notice {
 		color: #333;
 		margin: -8px 0 20px 0;
@@ -478,7 +482,7 @@ td { vertical-align: top; }
 	
 	footer {
 		border-top: 2px solid #e6e6e6;
-		margin: 10px 0 0 0;
+		margin: 20px 0 0 0;
 		padding: 14px 20px 0 20px;
 	}
 	
@@ -507,6 +511,82 @@ td { vertical-align: top; }
 	footer ul li a:hover {
 		color: #1b59ad;
 	}
+	
+	/*--- Settings ---*/
+	
+	#settings {
+		#content { margin: 10px 2% 15px 2%; }
+		
+		h1 { margin: 0 0 -7px 0; }
+		#welcome {
+			h2 {
+				color: #8b8b8b;
+				font-weight: normal;
+			}
+			#profile-photo {
+				float: left;
+				margin: 0 15px 0 0;
+			}
+		}
+		form {
+			.control-label {
+				float: left;
+				width: 140px;
+				padding-top: 5px;
+				text-align: right;
+			}
+			label {
+				display: block;
+				margin-bottom: 5px;
+			}
+			.controls {
+			margin-left: 160px;
+			}
+			.control-group::before, .form-horizontal .control-group::after {
+			display: table;
+			content: "";
+			}
+			.control-group::after {
+			clear: both;
+			}
+			.control-group::before, .form-horizontal .control-group::after {
+			display: table;
+			content: "";
+			}
+			.form-actions {
+			padding-left: 160px;
+			padding: 17px 20px 18px;
+			margin-top: 18px;
+			margin-bottom: 18px;
+			background-color: whiteSmoke;
+			border-top: 1px solid #DDD;
+			}
+			
+			input[type="text"] {
+				display: inline-block;
+				width: 210px;
+				height: 18px;
+				padding: 4px;
+				margin-bottom: 9px;
+				font-size: 13px;
+				line-height: 18px;
+				color: 
+				#555;
+				background-color: 
+				white;
+				border: 1px solid 
+				#CCC;
+				-webkit-border-radius: 3px;
+				-moz-border-radius: 3px;
+				border-radius: 3px;
+			}
+			.controls > .radio:first-child, .controls > .checkbox:first-child {
+				padding-top: 5px;
+			}
+			
+		}
+	}
+	
 
 
 	/*--- Ideas ---*/

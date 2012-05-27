@@ -31,7 +31,7 @@
 	     Create your own custom Modernizr build: www.modernizr.com/download/ -->
 	<script src="js/libs/modernizr-2.5.3.min.js"></script>
 </head>
-<body>
+<body id="main">
 	<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.
 	     chromium.org/developers/how-tos/chrome-frame-getting-started -->
 	<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
@@ -79,11 +79,12 @@
 					if(authenticated) {
 						// assume user is registering
 						// create the user
-						FB.api('/me?fields=id,name,first_name,email', function(me) {
+						FB.api('/me?fields=id,name,first_name,last_name,email', function(me) {
 							var cct = $.cookie('ttc_csrf_cookie'); // csrf protection
 							var sUrl = "<?= base_url(); ?>user/create/";
 							var serialized = { 
-								name: me.name, 
+								first_name: me.first_name, 
+								last_name: me.last_name, 
 								email: me.email, 
 								oauth_provider: 'facebook', 
 								oauth_uid: me.id,
@@ -122,7 +123,7 @@
 									} else {
 										// account already exists
 										console.log('User already exists');
-										loginUser(me.id, me.name, me.first_name, me.email);
+										loginUser(me.id, me.name, me.first_name, me.last_name, me.email);
 									}
 
 								}
@@ -135,13 +136,14 @@
 			
 		 };
 		
-		function loginUser(uid, name, firstName, email) {
+		function loginUser(uid, name, firstName, lastName, email) {
 			var cct = $.cookie('ttc_csrf_cookie'); // csrf protection
 			var sUrl = "<?= base_url(); ?>user/login/";
 			var serialized = {
 				oauth_uid: uid,
 				name: name,
 				first_name: firstName,
+				last_name: lastName,
 				email: email,
 				ttc_csrf_token: cct
 			};
@@ -222,7 +224,11 @@
 					<?php endif; ?>
 
 					<?php if($this->session->userdata('user_id') && ENVIRONMENT == 'development'): ?>
-						<li><a href="#" class="nav-profile-link">My Profile</a></li>
+						<li>
+							<a href="<?=base_url();?>settings/" class="nav-profile-link">
+								<img src="https://graph.facebook.com/<?=$this->session->userdata('fb_id');?>/picture" /><?=$this->session->userdata('first_name');?>
+							</a>
+						</li>
 					<?php else: ?>
 						<li><a href="#" class="login-link"><strong>Login</strong></a></li>
 					<?php endif; ?>
@@ -230,7 +236,7 @@
 			</nav>
 	    </header>
 
-	    <div id="main" class="list clearfix" role="main">
+	    <div class="list clearfix" role="main">
 			<?php if(!$this->session->userdata('user_id')): ?>
 				<div id="new-user-notice-container"></div>
 			<?php endif; ?>

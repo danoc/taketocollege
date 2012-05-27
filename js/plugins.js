@@ -184,15 +184,15 @@ jQuery.effects||function(a,b){function c(b){var c;return b&&b.constructor==Array
     settings: {
       opacity      : 0.2,
       overlay      : true,
-      loadingImage : 'img/facebox/loading.gif',
-      closeImage   : 'img/facebox/closelabel.png',
+      loadingImage : 'http://taketocollege.com/img/facebox/loading.gif',
+      closeImage   : 'http://taketocollege.com/img/facebox/closelabel.png',
       imageTypes   : [ 'png', 'jpg', 'jpeg', 'gif' ],
       faceboxHtml  : '\
     <div id="facebox" style="display:none;"> \
       <div class="popup"> \
         <div class="content"> \
         </div> \
-        <a href="#" class="close"><img src="img/facebox/closelabel.png" title="close" class="close_image" /></a> \
+        <a href="#" class="close"><img src="http://taketocollege.com/img/facebox/closelabel.png" title="close" class="close_image" /></a> \
       </div> \
     </div>'
     },

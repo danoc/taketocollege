@@ -26,9 +26,19 @@ class Users extends CI_Model {
 	function authenticate_user($key, $value) {
 		$this->db->select('user_id');
 		$query = $this->db->get_where('users', array($key => $value));
-		$row = $query->row();
 		if ($query->num_rows() > 0) {
+			$row = $query->row();
 			return $row->user_id;
+		}
+		return false;
+	}
+	
+	function get_user_information($field, $user_id) {
+		$this->db->select($field);
+		$query = $this->db->get_where('users', array('user_id' => $user_id));
+		if ($query->num_rows() > 0) {
+			$row = $query->row();
+			return $row->$field;
 		}
 		return false;
 	}
@@ -43,5 +53,10 @@ class Users extends CI_Model {
 		// $this->chromephp->log($row->list_id); 
 		
 		return $row->list_id;
+	}
+	
+	function update_user($data, $user_id) {
+		$this->db->where('user_id', $user_id);
+		$this->db->update('users', $data); 
 	}
 }
