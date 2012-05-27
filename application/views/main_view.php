@@ -223,7 +223,7 @@
 						<li><a href="#fb_ideas" rel="facebox" class="soft-button success">Explore Items</a></li>
 					<?php endif; ?>
 
-					<?php if($this->session->userdata('user_id') && ENVIRONMENT == 'development'): ?>
+					<?php if($this->session->userdata('user_id')): ?>
 						<li>
 							<a href="<?=base_url();?>settings/" class="nav-profile-link">
 								<img src="https://graph.facebook.com/<?=$this->session->userdata('fb_id');?>/picture" /><?=$this->session->userdata('first_name');?>
