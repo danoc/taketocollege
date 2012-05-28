@@ -10,13 +10,21 @@ class UserList extends CI_Controller {
 	
 	public function index()
 	{
+		$code = $this->uri->segment(2, 0);
+		if(strlen($code) == 6 && $this->Lists->get_info('public', 'code', $code)) {
+			$data['list_id'] = $this->Lists->get_info('list_id', 'code', $code);
+			$data['title'] = $this->Lists->get_info('title', 'list_id', $data['list_id']);
+			$data['items'] = $this->Lists->get_list($data['list_id']);
+			$this->load->view('public_list_view', $data);		
+		}
 	}
 
 	/**
 	* Create a new list and add new and existing 
 	* items. Used by a jQuery AJAX request.
 	*/
-	public function create() {
+	public function create() 
+	{
 		if($this->input->post()) {
 			$this->load->helper('string');
 

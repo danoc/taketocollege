@@ -40,6 +40,7 @@
 
 $route['default_controller'] = "main";
 $route['list'] = "userlist";
+$route['list/(:num)'] = "userlist";
 $route['list/(:any)'] = "userlist/$1";
 $route['404_override'] = '';
 

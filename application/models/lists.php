@@ -260,6 +260,20 @@ class Lists extends CI_Model {
 		$this->db->delete('lists_items');
 	}
 	
+	
+	/**
+	* Get a field from the lists table.
+	*/
+	
+	function get_info($field, $key, $value) {
+		$this->db->select($field);
+		$query = $this->db->get_where('lists', array($key => $value));
+		if($query->num_rows() > 0) {
+			$row = $query->row();
+			return $row->$field;
+		}
+		return false;
+	}
 
 	######################
 	#	Item Functions   #
