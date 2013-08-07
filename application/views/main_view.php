@@ -13,7 +13,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>Take to College</title>
-	<meta name="description" content="">
+	<meta name="description" content="An interactive college shopping list.">
 
 	<!-- Mobile viewport optimized: h5bp.com/viewport -->
 	<meta name="viewport" content="width=device-width">
