@@ -22,7 +22,7 @@
 
 	<!-- <link rel="stylesheet" href="css/style.css"> -->
 	<link rel="stylesheet/less" type="text/css" href="css/style.less">
-	<script src="http://lesscss.googlecode.com/files/less-1.3.0.min.js" type="text/javascript"></script>
+	<script src="https://rawgithub.com/less/less.js/master/dist/less-1.4.1.min.js" type="text/javascript"></script>
 
 	<!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
 
