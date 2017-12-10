@@ -5,16 +5,22 @@ import { map, size } from "lodash";
 import "tachyons";
 
 const Category = props => (
-  <section className="w-20">
-    <h3 className="f5">{props.title}</h3>
+  <section className="w-100 w-50-ns w-33-m w-20-l pr3">
+    <h2 className="f5 mb">{props.title}</h2>
     {size(props.items) > 0 && (
-      <ul>
+      <ul className="list pl0 mt0">
         {map(props.items, item => (
-          <li>
+          <li className="bb b--light-gray f5">
             {item.to ? (
-              <a href={item.to}>{item.title}</a>
+              <a
+                href={item.to}
+                className="pv2 ph1 block db link dark-gray hover-bg-near-white"
+                title={`Shop for “${item.title}” on Amazon`}
+              >
+                {item.title}
+              </a>
             ) : (
-              <span>{item.title}</span>
+              <span className="pv2 ph1 db dark-gray">{item.title}</span>
             )}
           </li>
         ))}
@@ -34,7 +40,7 @@ Category.propTypes = {
 };
 
 const IndexPage = () => (
-  <div className="sans-serif mw9 pa4">
+  <div className="sans-serif mw9 ph4 near-black pv5 ml-auto mr-auto">
     <Helmet
       title="What to Take to College"
       meta={[
@@ -46,16 +52,15 @@ const IndexPage = () => (
         lang: "en",
       }}
     />
-    <header className="bb b--light-gray bw3">
+    <header className="bb b--light-gray bw3 mb3">
       <h1 className="mt0 mb3 f2">Take to College</h1>
     </header>
     <main>
-      <h2 className="f5">College Packing List</h2>
       <div className="flex flex-wrap">
         <Category
           title="School Supplies"
           items={[
-            { title: "Backpack" },
+            { title: "Backpack", to: "https://amazon.com/" },
             { title: "Calculator" },
             { title: "Folder" },
             { title: "Loose Leaf" },
