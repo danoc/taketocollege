@@ -43,8 +43,13 @@ const IndexPage = () => (
   <div className="sans-serif mw9 ph4 near-black pv5 ml-auto mr-auto">
     <Helmet
       title="What to Take to College"
+      description="A shopping list for students entering college."
       meta={[
         { property: "og:title", content: "What to Take to College" },
+        {
+          property: "og:description",
+          content: "A shopping and packing list for students entering college.",
+        },
         { property: "og:type", content: "website" },
         { name: "theme-color", content: "#333333" },
       ]}
