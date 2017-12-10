@@ -1,0 +1,43 @@
+{
+  "name": "taketocollege",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "gatsby develop",
+    "precommit": "lint-staged && yarn test",
+    "test": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --fix",
+    "build": "rm -rf public/ && gatsby build"
+  },
+  "dependencies": {
+    "gatsby": "^1.9.130",
+    "gatsby-link": "^1.6.31",
+    "gatsby-plugin-google-analytics": "^1.0.14",
+    "gatsby-plugin-lodash": "^1.0.6",
+    "gatsby-plugin-netlify": "^1.0.11",
+    "gatsby-plugin-offline": "^1.0.12",
+    "gatsby-plugin-react-helmet": "^2.0.3",
+    "gatsby-plugin-sass": "^1.0.15",
+    "gatsby-plugin-sitemap": "^1.2.7",
+    "lodash": "^4.17.4",
+    "react-helmet": "^5.2.0",
+    "tachyons": "^4.9.0",
+    "tachyons-sass": "^4.8.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.6.1",
+    "eslint-config-airbnb": "^16.0.0",
+    "eslint-config-prettier": "^2.4.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.3.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.0.0",
+    "prettier": "^1.6.1"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "git add"
+    ]
+  }
+}
