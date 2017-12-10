@@ -65,7 +65,7 @@ const IndexPage = () => (
         <Category
           title="School Supplies"
           items={[
-            { title: "Backpack" },
+            { title: "Backpack", to: "http://amzn.to/2AKPbKm" },
             { title: "Calculator" },
             { title: "Folders" },
             { title: "Loose Leaf" },
