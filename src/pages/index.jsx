@@ -5,12 +5,12 @@ import { map, size } from "lodash";
 import "tachyons";
 
 const Category = props => (
-  <section className="w-100 w-50-ns w-33-m w-20-l pr3">
-    <h2 className="f5 mb">{props.title}</h2>
+  <section className="w-100 w-33-m w-20-l pr3">
+    <h2 className="f5 mb ph1">{props.title}</h2>
     {size(props.items) > 0 && (
       <ul className="list pl0 mt0">
         {map(props.items, item => (
-          <li className="bb b--light-gray f5">
+          <li className="bb b--light-gray f5" key={item.title}>
             {item.to ? (
               <a
                 href={item.to}
@@ -60,12 +60,11 @@ const IndexPage = () => (
         <Category
           title="School Supplies"
           items={[
-            { title: "Backpack", to: "https://amazon.com/" },
+            { title: "Backpack" },
             { title: "Calculator" },
-            { title: "Folder" },
+            { title: "Folders" },
             { title: "Loose Leaf" },
-            { title: "Notebook" },
-            { title: "Pencil Sharpener" },
+            { title: "Notebooks" },
             { title: "Pencils" },
             { title: "Pens" },
             { title: "Scissor" },
@@ -74,83 +73,160 @@ const IndexPage = () => (
           ]}
         />
         <Category
-          title="School Supplies"
+          title="Room Items"
           items={[
-            { title: "Backpack" },
-            { title: "Calculator" },
-            { title: "Folder" },
-            { title: "Loose Leaf" },
-            { title: "Notebook" },
-            { title: "Pencil Sharpener" },
-            { title: "Pencils" },
-            { title: "Pens" },
-            { title: "Scissor" },
-            { title: "Stapler" },
-            { title: "Textbooks" },
+            { title: "Alarm Clock" },
+            { title: "Broom" },
+            { title: "Calendar" },
+            { title: "Desk Lamp" },
+            { title: "Fan" },
+            { title: "Fabreeze" },
+            { title: "Hangers" },
+            { title: "Mirror" },
+            { title: "Picture Frame and Photos" },
+            { title: "Posters" },
+            { title: "Storage Trays" },
+            { title: "Tools (Screwdriver, Hammer)" },
+            { title: "Wastebasket" },
           ]}
         />
         <Category
-          title="School Supplies"
+          title="Electronics & Fun"
           items={[
-            { title: "Backpack" },
-            { title: "Calculator" },
-            { title: "Folder" },
-            { title: "Loose Leaf" },
-            { title: "Notebook" },
-            { title: "Pencil Sharpener" },
-            { title: "Pencils" },
-            { title: "Pens" },
-            { title: "Scissor" },
-            { title: "Stapler" },
-            { title: "Textbooks" },
+            { title: "Basketball, Football, etc." },
+            { title: "Books" },
+            { title: "Camera" },
+            { title: "Cell Phone & Charger" },
+            { title: "Headphones" },
+            { title: "Movies (DVDs, Blu-Ray)" },
+            { title: "MP3 Player (iPod)" },
+            { title: "Music" },
+            { title: "Television" },
+            { title: "Video Games" },
           ]}
         />
         <Category
-          title="School Supplies"
+          title="Miscellaneous"
           items={[
-            { title: "Backpack" },
-            { title: "Calculator" },
-            { title: "Folder" },
-            { title: "Loose Leaf" },
-            { title: "Notebook" },
-            { title: "Pencil Sharpener" },
-            { title: "Pencils" },
-            { title: "Pens" },
-            { title: "Scissor" },
-            { title: "Stapler" },
-            { title: "Textbooks" },
+            { title: "Batteries (Especially AA)" },
+            { title: "Duct Tape" },
+            { title: "Ear Plugs" },
+            { title: "Instant Stain Remover" },
+            { title: "Scotch Tape" },
+            { title: "Sewing Kit" },
+            { title: "Tissues" },
           ]}
         />
         <Category
-          title="School Supplies"
+          title="Health"
           items={[
-            { title: "Backpack" },
-            { title: "Calculator" },
-            { title: "Folder" },
-            { title: "Loose Leaf" },
-            { title: "Notebook" },
-            { title: "Pencil Sharpener" },
-            { title: "Pencils" },
-            { title: "Pens" },
-            { title: "Scissor" },
-            { title: "Stapler" },
-            { title: "Textbooks" },
+            { title: "Bandages" },
+            { title: "Contact Lenses" },
+            { title: "Cough Drops" },
+            { title: "Cough Medicine" },
+            { title: "First-aid kit" },
+            { title: "Glasses" },
+            { title: "Neosporin" },
+            { title: "Pain Relievers" },
+            { title: "Purell" },
+            { title: "Sunscreen" },
+            { title: "Vitamins" },
           ]}
         />
         <Category
-          title="School Supplies"
+          title="Bedding"
           items={[
-            { title: "Backpack" },
-            { title: "Calculator" },
-            { title: "Folder" },
-            { title: "Loose Leaf" },
-            { title: "Notebook" },
-            { title: "Pencil Sharpener" },
-            { title: "Pencils" },
-            { title: "Pens" },
-            { title: "Scissor" },
-            { title: "Stapler" },
-            { title: "Textbooks" },
+            { title: "Bed Risers" },
+            { title: "Bedding" },
+            { title: "Blanket" },
+            { title: "Comforter" },
+            { title: "Mattress Pad" },
+            { title: "Pillowcases" },
+            { title: "Pillows" },
+            { title: "Sheets" },
+          ]}
+        />
+        <Category
+          title="Clothes & Accessories"
+          items={[
+            { title: "Bathrobe" },
+            { title: "Casual Clothes" },
+            { title: "Clothing" },
+            { title: "Flip Flops" },
+            { title: "Formal Clothes" },
+            { title: "Hats, Gloves, Scarves" },
+            { title: "Poncho / Raincoat" },
+            { title: "Rain Boots" },
+            { title: "Shoes" },
+            { title: "Sporting Clothes" },
+            { title: "Swimwear" },
+            { title: "Umbrella" },
+            { title: "Wallet" },
+            { title: "Watch" },
+          ]}
+        />
+        <Category
+          title="Hygiene & Beauty"
+          items={[
+            { title: "Conditioner" },
+            { title: "Cotton Swabs (Q-Tips)" },
+            { title: "Dental Floss" },
+            { title: "Deodorant" },
+            { title: "Hair Brush / Comb" },
+            { title: "Hair Dryer" },
+            { title: "Makeup" },
+            { title: "Mouthwash" },
+            { title: "Nail Clipper" },
+            { title: "Razors / Shaving Cream" },
+            { title: "Shampoo" },
+            { title: "Shower Cap" },
+            { title: "Shower Tote" },
+            { title: "Soap" },
+            { title: "Toothbrush" },
+            { title: "Toothpaste" },
+            { title: "Towels (Bath, Hand)" },
+            { title: "Tweezers" },
+          ]}
+        />
+        <Category
+          title="Computers & Accessories"
+          items={[
+            { title: "Laptop" },
+            { title: "External Hard Drive" },
+            { title: "Power Strips" },
+          ]}
+        />
+        <Category
+          title="Kitchen Needs"
+          items={[
+            { title: "Bottle Opener" },
+            { title: "Disposable Plates" },
+            { title: "Disposable Silverware" },
+            { title: "Microwave" },
+            { title: "Mini-Fridge" },
+            { title: "Plastic Cups" },
+            { title: "Water Bottle" },
+          ]}
+        />
+        <Category
+          title="Documents"
+          items={[
+            { title: "Documents" },
+            { title: "Copies of Important Documents" },
+            { title: "Driver's License" },
+            { title: "Health Records" },
+            { title: "Insurance Information" },
+            { title: "Passport" },
+            { title: "Social Security Number" },
+          ]}
+        />
+        <Category
+          title="Laundry"
+          items={[
+            { title: "Bin/Hamper" },
+            { title: "Detergent" },
+            { title: "Dryer Sheets" },
+            { title: "Fabric Softener" },
           ]}
         />
       </div>
