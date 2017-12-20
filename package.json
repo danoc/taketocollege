@@ -10,32 +10,35 @@
     "deploy": "npm run build && netlify deploy"
   },
   "dependencies": {
-    "gatsby": "^1.9.130",
-    "gatsby-link": "^1.6.31",
+    "gatsby": "^1.9.144",
+    "gatsby-link": "^1.6.32",
     "gatsby-plugin-google-analytics": "^1.0.14",
     "gatsby-plugin-lodash": "^1.0.6",
-    "gatsby-plugin-netlify": "^1.0.11",
+    "gatsby-plugin-netlify": "^1.0.12",
     "gatsby-plugin-offline": "^1.0.12",
     "gatsby-plugin-react-helmet": "^2.0.3",
     "gatsby-plugin-sass": "^1.0.15",
     "lodash": "^4.17.4",
     "react-helmet": "^5.2.0",
     "tachyons": "^4.9.0",
-    "tachyons-sass": "^4.8.1"
+    "tachyons-sass": "^4.9.0"
   },
   "devDependencies": {
-    "eslint": "^4.6.1",
+    "eslint": "^4.13.1",
     "eslint-config-airbnb": "^16.0.0",
     "eslint-config-prettier": "^2.4.0",
     "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.3.0",
     "husky": "^0.14.3",
     "lint-staged": "^6.0.0",
     "netlify-cli": "^1.2.2",
-    "prettier": "^1.6.1"
+    "prettier": "^1.9.2"
   },
   "lint-staged": {
-    "*.js": ["prettier --write", "git add"]
+    "*.js": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
