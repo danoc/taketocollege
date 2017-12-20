@@ -59,8 +59,8 @@ const IndexPage = () => (
         lang: "en"
       }}
     />
-    <header className="bb b--light-gray bw3 mb3">
-      <h1 className="mt0 mb3 f2">Take to College</h1>
+    <header className="bb b--light-gray bw3 mb4">
+      <h1 className="mt0 mb4 f2">Take to College</h1>
     </header>
     <main>
       <div className="flex flex-wrap">
