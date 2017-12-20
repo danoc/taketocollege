@@ -3,9 +3,10 @@ import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { map, size } from "lodash";
 import "tachyons";
+import "../index.scss";
 
 const Category = props => (
-  <section className="w-100 w-33-m w-20-l pr3">
+  <section className="w-100 ttc-w-50-s ttc-w-33-m ttc-w-25-l ttc-w-20-xl pr3">
     <h2 className="f5 mb ph1">{props.title}</h2>
     {size(props.items) > 0 && (
       <ul className="list pl0 mt0">
