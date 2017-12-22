@@ -22,21 +22,23 @@ class IndexPage extends React.Component {
   }
 
   setNumberOfColumns() {
-    const w = Math.max(
-      document.documentElement.clientWidth,
-      window.innerWidth || 0
-    );
+    if (typeof window !== "undefined") {
+      const w = Math.max(
+        document.documentElement.clientWidth,
+        window.innerWidth || 0
+      );
 
-    if (w < 450) {
-      this.setState({ numColumns: 1 });
-    } else if (w < 630) {
-      this.setState({ numColumns: 2 });
-    } else if (w < 970) {
-      this.setState({ numColumns: 3 });
-    } else if (w < 1200) {
-      this.setState({ numColumns: 4 });
-    } else if (w >= 1300) {
-      this.setState({ numColumns: 5 });
+      if (w < 450) {
+        this.setState({ numColumns: 1 });
+      } else if (w < 630) {
+        this.setState({ numColumns: 2 });
+      } else if (w < 970) {
+        this.setState({ numColumns: 3 });
+      } else if (w < 1200) {
+        this.setState({ numColumns: 4 });
+      } else if (w >= 1300) {
+        this.setState({ numColumns: 5 });
+      }
     }
   }
 
