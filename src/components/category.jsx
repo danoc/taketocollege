@@ -2,15 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import { map, size } from "lodash";
 
-const trackEvent = (event, categoryTitle, itemTitle, url) => {
+const trackEvent = (event, categoryTitle, itemTitle) => {
   if (typeof ga !== "undefined") {
-    event.preventDefault();
-
-    ga("send", "event", "Item", "buy", `${categoryTitle} - ${itemTitle}`, {
-      transport: "beacon",
-      hitCallback() {
-        document.location = url;
-      }
+    ga("send", "event", {
+      eventCategory: "Item",
+      eventAction: "buy",
+      eventLabel: `${categoryTitle} - ${itemTitle}`,
+      transport: "beacon"
     });
   }
 };
