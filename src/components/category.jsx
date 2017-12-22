@@ -2,6 +2,19 @@ import React from "react";
 import PropTypes from "prop-types";
 import { map, size } from "lodash";
 
+const trackEvent = (event, categoryTitle, itemTitle, url) => {
+  if (typeof ga !== "undefined") {
+    event.preventDefault();
+
+    ga("send", "event", "Item", "buy", `${categoryTitle} - ${itemTitle}`, {
+      transport: "beacon",
+      hitCallback() {
+        document.location = url;
+      }
+    });
+  }
+};
+
 const Category = props => (
   <section>
     <h2 className="f5 mb ph1">{props.title}</h2>
@@ -16,6 +29,9 @@ const Category = props => (
                 title={`Shop for “${item.title}” on Amazon`}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={e => {
+                  trackEvent(e, props.title, item.title, item.to);
+                }}
               >
                 {item.title}
               </a>
