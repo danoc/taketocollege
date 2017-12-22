@@ -6,8 +6,7 @@
     "start": "gatsby develop",
     "precommit": "lint-staged && npm test",
     "test": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --fix",
-    "build": "rm -rf public/ && gatsby build",
-    "deploy": "npm run build && netlify deploy"
+    "build": "gatsby build"
   },
   "dependencies": {
     "classnames": "^2.2.5",
@@ -38,9 +37,6 @@
     "prettier": "^1.9.2"
   },
   "lint-staged": {
-    "*.js": [
-      "prettier --write",
-      "git add"
-    ]
+    "*.js": ["prettier --write", "git add"]
   }
 }
