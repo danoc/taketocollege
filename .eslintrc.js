@@ -6,6 +6,10 @@ module.exports = {
       jsx: true
     }
   },
+  env: {
+    browser: true,
+    node: true
+  },
   extends: ["airbnb", "prettier"],
   globals: {
     graphql: false,
