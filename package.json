@@ -10,6 +10,7 @@
     "deploy": "npm run build && netlify deploy"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "gatsby": "^1.9.144",
     "gatsby-link": "^1.6.32",
     "gatsby-plugin-google-analytics": "^1.0.14",
@@ -20,6 +21,7 @@
     "gatsby-plugin-sass": "^1.0.15",
     "lodash": "^4.17.4",
     "react-helmet": "^5.2.0",
+    "react-window-size-listener": "^1.0.10",
     "tachyons": "^4.9.0",
     "tachyons-sass": "^4.9.0"
   },
