@@ -12,6 +12,7 @@ module.exports = {
   },
   extends: ["airbnb", "prettier"],
   globals: {
+    ga: false,
     graphql: false,
     URL: false
   },
