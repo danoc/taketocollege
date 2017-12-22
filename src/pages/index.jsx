@@ -34,9 +34,9 @@ class IndexPage extends React.Component {
         this.setState({ numColumns: 2 });
       } else if (w < 970) {
         this.setState({ numColumns: 3 });
-      } else if (w < 1200) {
+      } else if (w < 1300) {
         this.setState({ numColumns: 4 });
-      } else if (w >= 1300) {
+      } else if (w >= 1301) {
         this.setState({ numColumns: 5 });
       }
     }
