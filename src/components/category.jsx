@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { map, size } from "lodash";
+import basket from "../basket.svg";
 
 const trackEvent = (event, categoryTitle, itemTitle) => {
   if (typeof ga !== "undefined") {
@@ -23,7 +24,7 @@ const Category = props => (
             {item.to ? (
               <a
                 href={item.to}
-                className="pv2 ph1 block db link dark-gray hover-bg-near-white"
+                className="pv2 ph1 block db link dark-gray hover-bg-near-white flex"
                 title={`Shop for “${item.title}” on Amazon`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -32,6 +33,7 @@ const Category = props => (
                 }}
               >
                 {item.title}
+                <img src={basket} alt="" className="h1 ml-auto o-30" />
               </a>
             ) : (
               <span className="pv2 ph1 db dark-gray">{item.title}</span>
