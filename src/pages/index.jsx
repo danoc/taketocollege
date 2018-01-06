@@ -87,7 +87,7 @@ class IndexPage extends React.Component {
                 <input
                   className="input-reset fl black-80 bg-white pa3 lh-solid w-100 w-75-m w-80-l ba b--black-20"
                   placeholder="example@example.com"
-                  type="text"
+                  type="email"
                   name="email-address"
                   id="email-address"
                 />
