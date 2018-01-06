@@ -72,6 +72,10 @@ class IndexPage extends React.Component {
             name="viewport"
             content="width=device-width,minimum-scale=1,initial-scale=1"
           />
+          <meta
+            name="amp-link-variable-allowed-origin"
+            content="https://amzn.to"
+          />
           <link rel="canonical" href="https://taketocollege.com" />
           <script async src="https://cdn.ampproject.org/v0.js" />
           <style amp-boilerplate>
