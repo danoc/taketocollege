@@ -91,11 +91,12 @@ class IndexPage extends React.Component {
                   name="email-address"
                   id="email-address"
                 />
-                <input
+                <button
                   className="button-reset fl pv3 tc bg-animate bg-black-70 hover-bg-black white pointer w-100 w-25-m w-20-l ba b--black-20"
                   type="submit"
-                  value="Submit"
-                />
+                >
+                  Submit
+                </button>
               </div>
             </form>
           </div>
