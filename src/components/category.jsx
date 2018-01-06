@@ -16,7 +16,7 @@ const trackEvent = (event, categoryTitle, itemTitle) => {
 
 const Category = props => (
   <section>
-    <h2 className="f5 mb ph1">{props.title}</h2>
+    <h2 className="f5 mb2 ph1 bb b--light-gray pb2">{props.title}</h2>
     {size(props.items) > 0 && (
       <ul className="list pl0 mt0">
         {map(props.items, item => (
