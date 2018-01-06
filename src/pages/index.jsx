@@ -64,31 +64,9 @@ class IndexPage extends React.Component {
             { name: "theme-color", content: "#333333" }
           ]}
           htmlAttributes={{
-            lang: "en",
-            amp: undefined
+            lang: "en"
           }}
-        >
-          <meta
-            name="viewport"
-            content="width=device-width,minimum-scale=1,initial-scale=1"
-          />
-          <meta
-            name="amp-link-variable-allowed-origin"
-            content="https://amzn.to"
-          />
-          <link rel="canonical" href="https://taketocollege.com" />
-          <script async src="https://cdn.ampproject.org/v0.js" />
-          <style amp-boilerplate>
-            {`body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}`}
-          </style>
-          <noscript>
-            {`
-              <style amp-boilerplate>
-                body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}
-              </style>
-            `}
-          </noscript>
-        </Helmet>
+        />
         <header className="bb b--light-gray bw3 mb4">
           <h1 className="mt0 mb4 f2">Take to College</h1>
         </header>
