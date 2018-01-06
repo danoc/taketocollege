@@ -48,11 +48,15 @@ class IndexPage extends React.Component {
         <WindowSizeListener onResize={this.setNumberOfColumns} />
         <Helmet
           title="What to Take to College"
-          description="A shopping list for students entering college."
           meta={[
             { property: "og:title", content: "What to Take to College" },
             {
               property: "og:description",
+              content:
+                "A shopping and packing list for students entering college."
+            },
+            {
+              name: "description",
               content:
                 "A shopping and packing list for students entering college."
             },
