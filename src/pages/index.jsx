@@ -72,7 +72,12 @@ class IndexPage extends React.Component {
         </header>
         <div className="bb b--light-gray bw3 pb4 mb4">
           <div className="ba b--black-40 pa4">
-            <form name="reminder-2018" data-netlify="true" className="black-80">
+            <form
+              name="reminder-2018"
+              data-netlify="true"
+              className="black-80"
+              method="post"
+            >
               <div className="f4 fw6 mb3 lh-title">
                 <span role="img" aria-label="Calendar emoji">
                   📆
