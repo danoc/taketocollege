@@ -75,6 +75,16 @@ class IndexPage extends React.Component {
           name="reminder-2018"
           data-netlify="true"
           method="post"
+          onSubmit={() => {
+            if (typeof ga !== "undefined") {
+              ga("send", "event", {
+                eventCategory: "User",
+                eventAction: "subscribe",
+                eventLabel: "reminder-2018",
+                transport: "beacon"
+              });
+            }
+          }}
         >
           <div className="f4 fw6 mb3 lh-title">
             Not ready to shop for college?
