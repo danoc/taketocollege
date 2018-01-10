@@ -70,6 +70,42 @@ class IndexPage extends React.Component {
         <header className="bb b--light-gray bw3 mb4">
           <h1 className="mt0 mb4 f2">Take to College</h1>
         </header>
+        <div className="bb b--light-gray bw3 pb4 mb4">
+          <div className="ba b--black-40 pa4">
+            <form
+              name="reminder-2018"
+              data-netlify="true"
+              className="black-80"
+              method="post"
+            >
+              <div className="f4 fw6 mb3 lh-title">
+                <span role="img" aria-label="Calendar emoji">
+                  📆
+                </span>
+                <span className="ml2">Not ready to shop for college?</span>
+              </div>
+              <p className="lh-copy mb3">
+                Enter your email and we’ll remind you about this site in May
+                2018.
+              </p>
+              <div className="measure cf pt1">
+                <input
+                  className="input-reset fl black-80 bg-white pa3 lh-solid w-100 w-75-m w-80-l ba b--black-20"
+                  placeholder="example@example.com"
+                  type="email"
+                  name="email-address"
+                  id="email-address"
+                />
+                <button
+                  className="button-reset fl pv3 tc bg-animate bg-black-70 hover-bg-black white pointer w-100 w-25-m w-20-l ba b--black-20"
+                  type="submit"
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
         <main>
           <Mosaic columns={this.state.numColumns}>
             <Category
