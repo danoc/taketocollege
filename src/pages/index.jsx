@@ -74,7 +74,6 @@ class IndexPage extends React.Component {
           className="ba b--black-30 pa4 black-80 mb4"
           name="reminder-2018"
           data-netlify="true"
-          data-netlify-honeypot="bot-field"
           method="post"
         >
           <div className="f4 fw6 mb3 lh-title">
@@ -100,7 +99,6 @@ class IndexPage extends React.Component {
             </button>
           </div>
           <input type="hidden" name="form-name" value="reminder-2018" />
-          <input name="bot-field" className="clip" />
         </form>
         <main>
           <Mosaic columns={this.state.numColumns}>
