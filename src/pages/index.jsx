@@ -98,6 +98,7 @@ class IndexPage extends React.Component {
               Submit
             </button>
           </div>
+
           <input type="hidden" name="form-name" value="reminder-2018" />
         </form>
         <main>
