@@ -18,6 +18,7 @@
     "gatsby-plugin-offline": "^1.0.12",
     "gatsby-plugin-react-helmet": "^2.0.3",
     "gatsby-plugin-sass": "^1.0.15",
+    "gatsby-plugin-sitemap": "^1.2.9",
     "lodash": "^4.17.4",
     "react-helmet": "^5.2.0",
     "react-window-size-listener": "^1.0.10",
@@ -37,6 +38,9 @@
     "prettier": "^1.9.2"
   },
   "lint-staged": {
-    "*.{js,jsx}": ["prettier --write", "git add"]
+    "*.{js,jsx}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
