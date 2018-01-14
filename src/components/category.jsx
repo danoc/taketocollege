@@ -27,7 +27,7 @@ const Category = props => (
                 className="pv2 ph1 block db link dark-gray hover-bg-near-white flex"
                 title={`Shop for “${item.title}” on Amazon`}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 onClick={e => {
                   trackEvent(e, props.title, item.title, item.to);
                 }}
