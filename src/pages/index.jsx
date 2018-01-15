@@ -50,6 +50,8 @@ class IndexPage extends React.Component {
           title="What to Take to College"
           meta={[
             { property: "og:title", content: "What to Take to College" },
+            { property: "og:url", content: "https://taketocollege.com/" },
+            { property: "og:type", content: "website" },
             {
               property: "og:description",
               content:
