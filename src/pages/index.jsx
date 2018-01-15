@@ -5,7 +5,7 @@ import WindowSizeListener from "react-window-size-listener";
 import "tachyons";
 import Mosaic from "../components/mosaic";
 import Category from "../components/category";
-import categories from "../items.json";
+import categories from "../data/items.json";
 import slugify from "../utils/slugify";
 import "../index.scss";
 
@@ -24,8 +24,8 @@ class IndexPage extends React.Component {
     this.setNumberOfColumns();
 
     this.numberOfItems = 0;
-    this.itemListElement = categories.map(category =>
-      category.items.map(item => {
+    this.itemListElement = this.props.data.allItemsJson.edges.map(edge =>
+      edge.node.items.map(item => {
         this.numberOfItems += 1;
 
         return {
@@ -35,7 +35,7 @@ class IndexPage extends React.Component {
             "@type": "Thing",
             name: item.title,
             url: `${this.props.data.site.siteMetadata.siteUrl}/#${slugify(
-              `${category.name}-${item.title}`
+              `${edge.node.name}-${item.title}`
             )}`
           }
         };
@@ -168,7 +168,7 @@ class IndexPage extends React.Component {
 }
 
 IndexPage.propTypes = {
-  data: PropTypes.shapeOf({}).isRequired
+  data: PropTypes.objectOf({}).isRequired
 };
 
 export default IndexPage;
@@ -178,6 +178,17 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         siteUrl
+      }
+    }
+    allItemsJson {
+      edges {
+        node {
+          name
+          items {
+            to
+            title
+          }
+        }
       }
     }
   }

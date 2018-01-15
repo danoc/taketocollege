@@ -5,6 +5,14 @@ module.exports = {
     siteUrl: "https://taketocollege.com"
   },
   plugins: [
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "data",
+        path: `${__dirname}/src/data/`
+      }
+    },
+    "gatsby-transformer-json",
     "gatsby-plugin-sass",
     "gatsby-plugin-react-helmet",
     {
