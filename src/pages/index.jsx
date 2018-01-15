@@ -63,7 +63,10 @@ class IndexPage extends React.Component {
                 "A shopping and packing list for students entering college."
             },
             { property: "og:type", content: "website" },
-            { name: "theme-color", content: "#333333" }
+            { name: "theme-color", content: "#333333" },
+            { name: "twitter:card", content: "summary" },
+            { name: "twitter:site", content: "@taketocollege" },
+            { name: "twitter:creator", content: "@_danoc" }
           ]}
           htmlAttributes={{
             lang: "en"
