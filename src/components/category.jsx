@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { map, size } from "lodash";
 import basket from "../basket.svg";
+import slugify from "../utils/slugify";
 
 const trackEvent = (event, categoryTitle, itemTitle) => {
   if (typeof ga !== "undefined") {
@@ -20,7 +21,11 @@ const Category = props => (
     {size(props.items) > 0 && (
       <ul className="list pl0 mt0">
         {map(props.items, item => (
-          <li className="bb b--light-gray f5" key={item.title}>
+          <li
+            className="bb b--light-gray f5"
+            key={item.title}
+            id={slugify(`${props.title}-${item.title}`)}
+          >
             {item.to ? (
               <a
                 href={item.to}
