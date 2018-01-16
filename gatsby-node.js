@@ -1,3 +1,36 @@
+const path = require("path");
+const slugify = require("./src/utils/slugify");
+
+exports.createPages = ({ boundActionCreators, graphql }) => {
+  const { createPage } = boundActionCreators;
+
+  return graphql(`
+    query {
+      allCollegesJson {
+        edges {
+          node {
+            name
+          }
+        }
+      }
+    }
+  `).then(result => {
+    if (result.errors) {
+      return Promise.reject(result.errors);
+    }
+
+    return result.data.allCollegesJson.edges.forEach(({ node }) =>
+      createPage({
+        path: slugify(node.name),
+        component: path.resolve("src/templates/list.jsx"),
+        context: {
+          name: node.name
+        }
+      })
+    );
+  });
+};
+
 exports.onPreBuild = ({ boundActionCreators }) => {
   const { createRedirect } = boundActionCreators;
 
