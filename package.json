@@ -9,9 +9,11 @@
     "build": "gatsby build"
   },
   "dependencies": {
-    "classnames": "^2.2.5",
+    "emotion": "^8.0.12",
+    "emotion-server": "^8.0.12",
     "gatsby": "^1.9.155",
     "gatsby-link": "^1.6.34",
+    "gatsby-plugin-emotion": "^1.1.10",
     "gatsby-plugin-google-analytics": "^1.0.15",
     "gatsby-plugin-lodash": "^1.0.7",
     "gatsby-plugin-netlify": "^1.0.13",
@@ -22,10 +24,10 @@
     "gatsby-source-filesystem": "^1.5.11",
     "gatsby-transformer-json": "^1.0.14",
     "lodash": "^4.17.4",
+    "normalize.css": "^7.0.0",
+    "react-emotion": "^8.0.12",
     "react-helmet": "^5.2.0",
-    "react-window-size-listener": "^1.0.10",
-    "tachyons": "^4.9.1",
-    "tachyons-sass": "^4.9.2"
+    "react-window-size-listener": "^1.0.10"
   },
   "devDependencies": {
     "eslint": "^4.15.0",
@@ -36,7 +38,6 @@
     "eslint-plugin-react": "^7.3.0",
     "husky": "^0.14.3",
     "lint-staged": "^6.0.0",
-    "netlify-cli": "^1.2.2",
     "prettier": "^1.10.2"
   },
   "lint-staged": {

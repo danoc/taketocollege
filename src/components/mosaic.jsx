@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import classNames from "classnames";
 import { size, map, forEach, times, reduce } from "lodash";
+import styled, { css } from "react-emotion";
 
 const getShortestColumn = contents => {
   let shortestIndex = 0;
@@ -25,6 +25,30 @@ const getShortestColumn = contents => {
   return shortestIndex;
 };
 
+const Container = styled("div")`
+  display: flex;
+`;
+
+const Column = styled("div")`
+  flex: 1;
+
+  ${props =>
+    props.isFirst === false &&
+    css`
+      padding-left: 0.5rem;
+    `};
+
+  ${props =>
+    props.isLast === false &&
+    css`
+      padding-right: 0.5rem;
+    `};
+`;
+
+const Category = styled("div")`
+  margin-bottom: 4rem;
+`;
+
 const Mosaic = ({ children, columns }) => {
   const contents = times(columns, () => []);
 
@@ -35,24 +59,15 @@ const Mosaic = ({ children, columns }) => {
   });
 
   return (
-    <div className="flex">
+    <Container>
       {map(contents, (column, i) => (
-        <div
-          key={i}
-          className={classNames({
-            "flex-auto": true,
-            pr2: i !== columns - 1,
-            pl2: i !== 0
-          })}
-        >
+        <Column key={i} isFirst={i === 0} isLast={i === columns - 1}>
           {map(column, category => (
-            <div key={category.props.title} className="mb5">
-              {category}
-            </div>
+            <Category key={category.props.title}>{category}</Category>
           ))}
-        </div>
+        </Column>
       ))}
-    </div>
+    </Container>
   );
 };
 

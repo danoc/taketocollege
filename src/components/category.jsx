@@ -1,8 +1,61 @@
 import React from "react";
 import PropTypes from "prop-types";
+import styled, { css } from "react-emotion";
 import { map, size } from "lodash";
 import basket from "../basket.svg";
 import slugify from "../utils/slugify";
+
+const H2 = styled("h2")`
+  font-size: 1rem;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+`;
+
+const UL = styled("ul")`
+  margin-top: 0;
+  padding-left: 0;
+  list-style-type: none;
+`;
+
+const LI = styled("li")`
+  margin-top: 0;
+  padding-left: 0;
+  list-style-type: none;
+  font-size: 1rem;
+  border-color: #eee;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+`;
+
+const Item = styled("a")`
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  color: #333;
+  text-decoration: none;
+  display: flex;
+
+  ${props =>
+    props.href &&
+    css`
+      &:focus {
+        outline: 1px dotted currentColor;
+      }
+
+      &:focus,
+      &:hover,
+      &:active {
+        background-color: #f4f4f4;
+      }
+    `};
+`;
+
+const ShoppingCart = styled("img")`
+  margin-left: auto;
+  opacity: 0.3;
+  height: 1rem;
+`;
 
 const trackEvent = (event, categoryTitle, itemTitle) => {
   if (typeof ga !== "undefined") {
@@ -17,19 +70,14 @@ const trackEvent = (event, categoryTitle, itemTitle) => {
 
 const Category = props => (
   <section>
-    <h2 className="f5 mb ph1">{props.title}</h2>
+    <H2>{props.title}</H2>
     {size(props.items) > 0 && (
-      <ul className="list pl0 mt0">
+      <UL>
         {map(props.items, item => (
-          <li
-            className="bb b--light-gray f5"
-            key={item.title}
-            id={slugify(`${props.title}-${item.title}`)}
-          >
+          <LI key={item.title} id={slugify(`${props.title}-${item.title}`)}>
             {item.to ? (
-              <a
+              <Item
                 href={item.to}
-                className="pv2 ph1 block db link dark-gray hover-bg-near-white flex"
                 title={`Shop for “${item.title}” on Amazon`}
                 target="_blank"
                 rel="noopener noreferrer nofollow"
@@ -38,14 +86,14 @@ const Category = props => (
                 }}
               >
                 {item.title}
-                <img src={basket} alt="" className="h1 ml-auto o-30" />
-              </a>
+                <ShoppingCart src={basket} alt="" />
+              </Item>
             ) : (
-              <span className="pv2 ph1 db dark-gray">{item.title}</span>
+              <Item>{item.title}</Item>
             )}
-          </li>
+          </LI>
         ))}
-      </ul>
+      </UL>
     )}
   </section>
 );
