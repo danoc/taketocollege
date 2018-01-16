@@ -110,47 +110,6 @@ class IndexPage extends React.Component {
         <header className="bb b--light-gray bw3 mb4">
           <h1 className="mt0 mb4 f2">Take to College</h1>
         </header>
-        <form
-          className="ba b--black-30 pa4 black-80 mb4"
-          name="reminder-2018"
-          data-netlify="true"
-          method="post"
-          onSubmit={() => {
-            if (typeof ga !== "undefined") {
-              ga("send", "event", {
-                eventCategory: "User",
-                eventAction: "subscribe",
-                eventLabel: "reminder-2018",
-                transport: "beacon"
-              });
-            }
-          }}
-        >
-          <div className="f4 fw6 mb3 lh-title">
-            Not ready to shop for college?
-          </div>
-          <p className="lh-copy mb3">
-            Enter your email and we’ll remind you about Take to College in May.
-          </p>
-          <div className="measure cf pt1">
-            <input
-              className="input-reset fl black-80 bg-white pa3 lh-solid w-100 w-75-m w-80-l ba b--black-20"
-              placeholder="example@gmail.com"
-              type="email"
-              name="email-address"
-              id="email-address"
-            />
-
-            <button
-              className="button-reset fl pv3 tc bg-animate bg-black-70 hover-bg-black white pointer w-100 w-25-m w-20-l ba b--black-20"
-              type="submit"
-            >
-              Submit
-            </button>
-          </div>
-
-          <input type="hidden" name="form-name" value="reminder-2018" />
-        </form>
         <main>
           <Mosaic columns={this.state.numColumns}>
             {categories.map(category => (
