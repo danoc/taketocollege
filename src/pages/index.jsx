@@ -2,12 +2,39 @@ import React from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import WindowSizeListener from "react-window-size-listener";
-import "tachyons";
+import styled from "react-emotion";
+import "normalize.css";
 import Mosaic from "../components/mosaic";
 import Category from "../components/category";
 import categories from "../data/items.json";
 import slugify from "../utils/slugify";
-import "../index.scss";
+
+const Container = styled("div")`
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  color: #111;
+  max-width: 96rem;
+  font-family: -apple-system, BlinkMacSystemFont, "avenir next", avenir,
+    "helvetica neue", helvetica, ubuntu, roboto, noto, "segoe ui", arial,
+    sans-serif;
+`;
+
+const Header = styled("header")`
+  margin-bottom: 2rem;
+  border-width: 0.5rem;
+  border-color: #eee;
+  border-bottom-style: solid;
+`;
+
+const H1 = styled("h1")`
+  font-size: 2.25rem;
+  margin-top: 0;
+  margin-bottom: 2rem;
+`;
 
 class IndexPage extends React.Component {
   constructor(props) {
@@ -66,7 +93,7 @@ class IndexPage extends React.Component {
 
   render() {
     return (
-      <div className="sans-serif mw9 ph4 near-black pv5 ml-auto mr-auto">
+      <Container>
         <WindowSizeListener onResize={this.setNumberOfColumns} />
         <Helmet
           title="What to Take to College"
@@ -107,9 +134,9 @@ class IndexPage extends React.Component {
             `}
           </script>
         </Helmet>
-        <header className="bb b--light-gray bw3 mb4">
-          <h1 className="mt0 mb4 f2">Take to College</h1>
-        </header>
+        <Header>
+          <H1>Take to College</H1>
+        </Header>
         <main>
           <Mosaic columns={this.state.numColumns}>
             {categories.map(category => (
@@ -121,7 +148,7 @@ class IndexPage extends React.Component {
             ))}
           </Mosaic>
         </main>
-      </div>
+      </Container>
     );
   }
 }
