@@ -42,7 +42,6 @@ module.exports = {
     },
     "gatsby-plugin-lodash",
     "gatsby-plugin-emotion",
-    "gatsby-plugin-offline",
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {
