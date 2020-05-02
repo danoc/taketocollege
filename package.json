@@ -4,7 +4,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "start": "gatsby develop",
-    "precommit": "lint-staged && npm test",
+    "precommit": "lint-staged && yarn test",
     "test": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --fix",
     "build": "gatsby build"
   },
