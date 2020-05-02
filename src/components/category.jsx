@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styled, { css } from "react-emotion";
+import styled from "@emotion/styled";
+import { css } from "emotion";
 import { map, size } from "lodash";
 import basket from "../basket.svg";
 import slugify from "../utils/slugify";
@@ -36,7 +37,7 @@ const Item = styled("a")`
   text-decoration: none;
   display: flex;
 
-  ${props =>
+  ${(props) =>
     props.href &&
     css`
       &:focus {
@@ -63,26 +64,26 @@ const trackEvent = (event, categoryTitle, itemTitle) => {
       eventCategory: "Item",
       eventAction: "buy",
       eventLabel: `${categoryTitle} - ${itemTitle}`,
-      transport: "beacon"
+      transport: "beacon",
     });
   }
 };
 
-const Category = props => (
+const Category = ({ title, items }) => (
   <section>
-    <H2>{props.title}</H2>
-    {size(props.items) > 0 && (
+    <H2>{title}</H2>
+    {size(items) > 0 && (
       <UL>
-        {map(props.items, item => (
-          <LI key={item.title} id={slugify(`${props.title}-${item.title}`)}>
+        {map(items, (item) => (
+          <LI key={item.title} id={slugify(`${title}-${item.title}`)}>
             {item.to ? (
               <Item
                 href={item.to}
                 title={`Shop for “${item.title}” on Amazon`}
                 target="_blank"
                 rel="noopener noreferrer nofollow"
-                onClick={e => {
-                  trackEvent(e, props.title, item.title, item.to);
+                onClick={(e) => {
+                  trackEvent(e, title, item.title, item.to);
                 }}
               >
                 {item.title}
@@ -103,9 +104,9 @@ Category.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       to: PropTypes.string,
-      title: PropTypes.string.isRequired
+      title: PropTypes.string.isRequired,
     })
-  ).isRequired
+  ).isRequired,
 };
 
 export default Category;

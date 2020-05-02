@@ -2,15 +2,15 @@ const regexExclude404 = /^(?!\/(dev-404-page|404|offline-plugin-app-shell-fallba
 
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://taketocollege.com"
+    siteUrl: "https://taketocollege.com",
   },
   plugins: [
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "data",
-        path: `${__dirname}/src/data/`
-      }
+        path: `${__dirname}/src/data/`,
+      },
     },
     "gatsby-transformer-json",
     "gatsby-plugin-sass",
@@ -37,17 +37,16 @@ module.exports = {
               }
             }
           }
-        }`
-      }
+        }`,
+      },
     },
     "gatsby-plugin-lodash",
     "gatsby-plugin-emotion",
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {
-        trackingId: "UA-5922635-4"
-      }
+        trackingId: "UA-5922635-4",
+      },
     },
-    "gatsby-plugin-netlify" // Must be last in the config.
-  ]
+  ],
 };

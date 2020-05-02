@@ -1,5 +1,5 @@
 /* eslint-disable no-useless-escape */
-const slugify = text =>
+const slugify = (text) =>
   text
     .toString()
     .toLowerCase()

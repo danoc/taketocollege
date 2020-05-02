@@ -1,8 +1,8 @@
 const path = require("path");
 const slugify = require("./src/utils/slugify");
 
-exports.createPages = ({ boundActionCreators, graphql }) => {
-  const { createPage } = boundActionCreators;
+exports.createPages = ({ actions, graphql }) => {
+  const { createPage } = actions;
 
   return graphql(`
     query {
@@ -14,7 +14,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         }
       }
     }
-  `).then(result => {
+  `).then((result) => {
     if (result.errors) {
       return Promise.reject(result.errors);
     }
@@ -24,160 +24,160 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         path: slugify(node.name),
         component: path.resolve("src/templates/list.jsx"),
         context: {
-          name: node.name
-        }
+          name: node.name,
+        },
       })
     );
   });
 };
 
-exports.onPreBuild = ({ boundActionCreators }) => {
-  const { createRedirect } = boundActionCreators;
+exports.onPreBuild = ({ actions }) => {
+  const { createRedirect } = actions;
 
   createRedirect({
     fromPath: "/blog",
     toPath: "https://danoc.me/blog",
-    isPermanent: true
+    isPermanent: true,
   });
 
   createRedirect({
     fromPath: "/blog/versioning-ui-library",
     toPath: "https://danoc.me/blog/versioning-ui-library",
-    isPermanent: true
+    isPermanent: true,
   });
 
   createRedirect({
     fromPath: "/blog/chrome-dev-summit-2014-notes",
     toPath: "https://danoc.me/blog/chrome-dev-summit-2014-notes",
-    isPermanent: true
+    isPermanent: true,
   });
 
   createRedirect({
     fromPath: "/blog/concert-layout",
     toPath: "https://danoc.me/blog/concert-layout",
-    isPermanent: true
+    isPermanent: true,
   });
 
   createRedirect({
     fromPath: "/blog/pipe-dream-server",
     toPath: "https://danoc.me/blog/pipe-dream-server",
-    isPermanent: true
+    isPermanent: true,
   });
 
   createRedirect({
     fromPath: "/blog/pipe-dream-stats",
     toPath: "https://danoc.me/blog/pipe-dream-stats",
-    isPermanent: true
+    isPermanent: true,
   });
 
   createRedirect({
     fromPath: "/blog/less-css-grid",
     toPath: "https://danoc.me/blog/less-css-grid",
-    isPermanent: true
+    isPermanent: true,
   });
 
   createRedirect({
     fromPath: "/blog/wordpress-pharma-hack",
     toPath: "https://danoc.me/blog/wordpress-pharma-hack",
-    isPermanent: true
+    isPermanent: true,
   });
 
   createRedirect({
     fromPath: "/blog/wordpress-site-sync",
     toPath: "https://danoc.me/blog/wordpress-site-sync",
-    isPermanent: true
+    isPermanent: true,
   });
 
   createRedirect({
     fromPath: "/blog/wordpress-article-deck",
     toPath: "https://danoc.me/blog/wordpress-article-deck",
-    isPermanent: true
+    isPermanent: true,
   });
 
   createRedirect({
     fromPath: "/blog/pipe-dream-redesign",
     toPath: "https://danoc.me/blog/pipe-dream-redesign",
-    isPermanent: true
+    isPermanent: true,
   });
 
   createRedirect({
     fromPath: "/blog/interview-with-camayak",
     toPath: "https://danoc.me/blog/interview-with-camayak",
-    isPermanent: true
+    isPermanent: true,
   });
 
   createRedirect({
     fromPath: "/blog/pipe-bomb-idea",
     toPath: "https://danoc.me/blog/pipe-bomb-idea",
-    isPermanent: true
+    isPermanent: true,
   });
 
   createRedirect({
     fromPath: "/blog/signs-of-progress",
     toPath: "https://danoc.me/blog/signs-of-progress",
-    isPermanent: true
+    isPermanent: true,
   });
 
   createRedirect({
     fromPath: "/blog/on-interning-at-optimizely",
     toPath: "https://danoc.me/blog/on-interning-at-optimizely",
-    isPermanent: true
+    isPermanent: true,
   });
 
   createRedirect({
     fromPath: "/blog/bupipedream-on-ipad",
     toPath: "https://danoc.me/blog/bupipedream-on-ipad",
-    isPermanent: true
+    isPermanent: true,
   });
 
   createRedirect({
     fromPath: "/blog/evolution-of-airbnb-frontend",
     toPath: "https://danoc.me/blog/evolution-of-airbnb-frontend",
-    isPermanent: true
+    isPermanent: true,
   });
 
   createRedirect({
     fromPath: "/blog/pipe-dream-visits-chicago",
     toPath: "https://danoc.me/blog/pipe-dream-visits-chicago",
-    isPermanent: true
+    isPermanent: true,
   });
 
   createRedirect({
     fromPath: "/blog/highlight-wordpress-search-results",
     toPath: "https://danoc.me/blog/highlight-wordpress-search-results",
-    isPermanent: true
+    isPermanent: true,
   });
 
   createRedirect({
     fromPath: "/blog/spring-fling-announcement-and-analytics",
     toPath: "https://danoc.me/blog/spring-fling-announcement-and-analytics",
-    isPermanent: true
+    isPermanent: true,
   });
 
   createRedirect({
     fromPath: "/blog/responsive-web-design-for-college-newspapers",
     toPath:
       "https://danoc.me/blog/responsive-web-design-for-college-newspapers",
-    isPermanent: true
+    isPermanent: true,
   });
 
   createRedirect({
     fromPath: "/blog/obama-to-visit-binghamton-university",
     toPath: "https://danoc.me/blog/obama-to-visit-binghamton-university",
-    isPermanent: true
+    isPermanent: true,
   });
 
   createRedirect({
     fromPath: "/blog/how-to-get-a-great-computer-science-internship",
     toPath:
       "https://danoc.me/blog/how-to-get-a-great-computer-science-internship",
-    isPermanent: true
+    isPermanent: true,
   });
 
   createRedirect({
     fromPath: "/blog/spring-fling-concert-announcement-takes-down-the-pipe",
     toPath:
       "https://danoc.me/blog/spring-fling-concert-announcement-takes-down-the-pipe",
-    isPermanent: true
+    isPermanent: true,
   });
 };

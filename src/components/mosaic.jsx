@@ -1,9 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { size, map, forEach, times, reduce } from "lodash";
-import styled, { css } from "react-emotion";
+import styled from "@emotion/styled";
+import { css } from "emotion";
 
-const getShortestColumn = contents => {
+const getShortestColumn = (contents) => {
   let shortestIndex = 0;
   let shortestValue;
 
@@ -32,13 +33,13 @@ const Container = styled("div")`
 const Column = styled("div")`
   flex: 1;
 
-  ${props =>
+  ${(props) =>
     props.isFirst === false &&
     css`
       padding-left: 0.5rem;
     `};
 
-  ${props =>
+  ${(props) =>
     props.isLast === false &&
     css`
       padding-right: 0.5rem;
@@ -52,7 +53,7 @@ const Category = styled("div")`
 const Mosaic = ({ children, columns }) => {
   const contents = times(columns, () => []);
 
-  forEach(children, child => {
+  forEach(children, (child) => {
     // Avoid function call if only doing one function.
     const shortestColumn = columns === 1 ? 0 : getShortestColumn(contents);
     contents[shortestColumn].push(child);
@@ -62,7 +63,7 @@ const Mosaic = ({ children, columns }) => {
     <Container>
       {map(contents, (column, i) => (
         <Column key={i} isFirst={i === 0} isLast={i === columns - 1}>
-          {map(column, category => (
+          {map(column, (category) => (
             <Category key={category.props.title}>{category}</Category>
           ))}
         </Column>
@@ -75,14 +76,14 @@ Mosaic.propTypes = {
   children: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
-      items: PropTypes.arrayOf({})
+      items: PropTypes.arrayOf({}),
     })
   ).isRequired,
-  columns: PropTypes.number
+  columns: PropTypes.number,
 };
 
 Mosaic.defaultProps = {
-  columns: 1
+  columns: 1,
 };
 
 export default Mosaic;

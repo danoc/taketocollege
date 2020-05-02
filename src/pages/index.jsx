@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Helmet from "react-helmet";
+import { Helmet } from "react-helmet";
 import WindowSizeListener from "react-window-size-listener";
-import styled from "react-emotion";
+import styled from "@emotion/styled";
+import { graphql } from "gatsby";
 import "normalize.css";
 import Mosaic from "../components/mosaic";
 import Category from "../components/category";
@@ -43,16 +44,18 @@ class IndexPage extends React.Component {
     this.setNumberOfColumns = this.setNumberOfColumns.bind(this);
 
     this.state = {
-      numColumns: 1
+      numColumns: 1,
     };
   }
 
-  componentWillMount() {
+  // eslint-disable-next-line camelcase
+  UNSAFE_componentWillMount() {
+    const { data } = this.props;
     this.setNumberOfColumns();
 
     this.numberOfItems = 0;
-    this.itemListElement = this.props.data.allItemsJson.edges.map(edge =>
-      edge.node.items.map(item => {
+    this.itemListElement = data.allItemsJson.edges.map((edge) =>
+      edge.node.items.map((item) => {
         this.numberOfItems += 1;
 
         return {
@@ -61,10 +64,10 @@ class IndexPage extends React.Component {
           item: {
             "@type": "Thing",
             name: item.title,
-            url: `${this.props.data.site.siteMetadata.siteUrl}/#${slugify(
+            url: `${data.site.siteMetadata.siteUrl}/#${slugify(
               `${edge.node.name}-${item.title}`
-            )}`
-          }
+            )}`,
+          },
         };
       })
     );
@@ -92,6 +95,7 @@ class IndexPage extends React.Component {
   }
 
   render() {
+    const { numColumns } = this.state;
     return (
       <Container>
         <WindowSizeListener onResize={this.setNumberOfColumns} />
@@ -104,21 +108,21 @@ class IndexPage extends React.Component {
             {
               property: "og:description",
               content:
-                "A shopping and packing list for students entering college."
+                "A shopping and packing list for students entering college.",
             },
             {
               name: "description",
               content:
-                "A shopping and packing list for students entering college."
+                "A shopping and packing list for students entering college.",
             },
             { property: "og:type", content: "website" },
             { name: "theme-color", content: "#333333" },
             { name: "twitter:card", content: "summary" },
             { name: "twitter:site", content: "@taketocollege" },
-            { name: "twitter:creator", content: "@_danoc" }
+            { name: "twitter:creator", content: "@_danoc" },
           ]}
           htmlAttributes={{
-            lang: "en"
+            lang: "en",
           }}
         >
           <script type="application/ld+json">
@@ -129,7 +133,7 @@ class IndexPage extends React.Component {
                 numberOfItems: this.numberOfItems,
                 itemListElement: this.itemListElement,
                 itemListOrder: "http://schema.org/ItemListUnordered",
-                name: "What to Take to College"
+                name: "What to Take to College",
               })}
             `}
           </script>
@@ -138,8 +142,8 @@ class IndexPage extends React.Component {
           <H1>Take to College</H1>
         </Header>
         <main>
-          <Mosaic columns={this.state.numColumns}>
-            {categories.map(category => (
+          <Mosaic columns={numColumns}>
+            {categories.map((category) => (
               <Category
                 title={category.name}
                 key={category.name}
@@ -154,7 +158,7 @@ class IndexPage extends React.Component {
 }
 
 IndexPage.propTypes = {
-  data: PropTypes.objectOf({}).isRequired
+  data: PropTypes.objectOf({}).isRequired,
 };
 
 export default IndexPage;
